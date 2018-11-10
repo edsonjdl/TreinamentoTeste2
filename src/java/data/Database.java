@@ -51,7 +51,7 @@ public class Database {
         for(int i = 1; i < 10; i++){
             int id = i;
             String name = "User " + i;
-            String login = "user" +1;
+            String login = "user" + i;
             String password = "123";
             boolean isActive = true;
             ArrayList<Integer> groups = new ArrayList();

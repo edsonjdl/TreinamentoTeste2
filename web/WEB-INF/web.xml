@@ -20,6 +20,10 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>servlets.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateGroupUsers</servlet-name>
+        <servlet-class>servlets.UpdateGroupUsers</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListUsers</servlet-name>
         <url-pattern>/ListUsers</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateGroupUsers</servlet-name>
+        <url-pattern>/UpdateGroupUsers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

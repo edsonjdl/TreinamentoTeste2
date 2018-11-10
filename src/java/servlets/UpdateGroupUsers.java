@@ -21,7 +21,7 @@ import util.DAO;
  *
  * @author edson
  */
-public class AddRemoveUser extends HttpServlet {
+public class UpdateGroupUsers extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,29 +35,23 @@ public class AddRemoveUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        //Retrieve referred group
         int groupId = Integer.parseInt(request.getParameter("groupId"));
+        String[] selectedUsers = request.getParameterValues("ui");
+        
+        DAO.updateGroupUsers(groupId, selectedUsers);               
+                
         Group group = new Group();
         
         group = DAO.findGroupById(groupId);
+        
+        ArrayList<User> groupUsers = new ArrayList<>();
+        groupUsers = DAO.getUsersFromGroup(group.getUsers());
+        
         request.setAttribute("group", group);
+        request.setAttribute("usersList", groupUsers);
         
-        // Retrieve users from group
-        ArrayList<User> usersInside = new ArrayList<>();
-        usersInside = DAO.getUsersFromGroup(group.getUsers());
-        
-        // Retrieve users not in this group
-        ArrayList<User> usersOutside = new ArrayList<>();
-        usersOutside = DAO.getUsersNotInGroup(groupId);
-        
-        
-        
-        request.setAttribute("usersOutside", usersOutside);        
-        request.setAttribute("usersInside", usersInside);
-        
-        RequestDispatcher disp = getServletContext().getRequestDispatcher("/addRemoveUser.jsp");
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/groupDetails.jsp");
         disp.forward(request, response); 
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

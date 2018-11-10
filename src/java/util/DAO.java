@@ -81,19 +81,57 @@ public class DAO {
     
     public static ArrayList<User> getUsersNotInGroup(int groupId){
         
-        ArrayList<User> outUsers = new ArrayList<>();
+        ArrayList<User> usersOutside = new ArrayList<>();
         Group group = new Group();
         group = findGroupById(groupId);
-        User u = new User();
         
-//            for(Integer i : group.getUsers()){
-//            u = findUserById(i);
-//            groupUsers.add(u);
-//        }
+        ArrayList<User> usersInside = new ArrayList<>();
+        usersInside = getUsersFromGroup(group.getUsers());     
+        User user = new User();
         
-        return outUsers;
+        for(User u : Database.userTable){
+                      
+            boolean check = true;
+            
+            for(Integer uiId : group.getUsers()){
+                
+                if(uiId == u.getId()){
+                    check = false;
+                }
+            }
+            
+            if(check){
+                usersOutside.add(u);
+            }
+            
+        }
+        
+        return usersOutside;
         
     }
 
+    
+    public static void updateGroupUsers(int groupId, String[] usersList){
+        
+                    System.out.println("Check");
+                    System.out.println(usersList);
+        
+        for(Group g : Database.groupTable){
+            
+            if(g.getId() == groupId){
+                ArrayList<Integer> usersUpdate = new ArrayList();
+                
+                for(String id: usersList){
+                System.out.println(id);
+                    usersUpdate.add(Integer.parseInt(id));                   
+                }
+                
+                g.setUsers(usersUpdate);  
+            }
+            
+        }
+        
+        
+    }
 
 }

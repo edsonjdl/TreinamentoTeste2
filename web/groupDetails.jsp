@@ -38,7 +38,7 @@
         
         <br><br>
         
-        <form action="/TreinamentoTeste2/AddRemoveUser">
+        <form action="/TreinamentoTeste2/AddRemoveUser" method="POST">
             <input type="hidden" value="${group.id}" name="groupId" />
             <input type="submit" value="Add Remove users from ${group.name}" />
         </form>            
