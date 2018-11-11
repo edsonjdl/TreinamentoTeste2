@@ -16,10 +16,18 @@ import models.User;
  * @author edson
  */
 public class DAO {
+    
+    public static void insertUser(User user){
+        Database.userTable.add(user);
+    }
+    
+    public static void insertGroup(Group group){
+        Database.groupTable.add(group);
+    }
 
     // Users list 
     public static ArrayList<User> listUsers() {
-
+        System.out.println(Database.userTable);
         return Database.userTable;
 
     }
@@ -73,9 +81,7 @@ public class DAO {
 
     }
     
-    
-    
-    
+
 
     public static ArrayList<User> getUsersFromGroup(ArrayList<Integer> userIds) {
 
@@ -146,6 +152,7 @@ public class DAO {
         
         //Update userTable
         updateUsersGroups();
+        
 
     }
 
@@ -154,6 +161,7 @@ public class DAO {
         //Update userTable
         for (User u : Database.userTable) {
             ArrayList<Integer> groupsUpdate = new ArrayList();
+            
             for (Group g : Database.groupTable) {
                 for (int userId : g.getUsers()) {
                     if (u.getId() == userId) {
@@ -161,6 +169,8 @@ public class DAO {
                     }
                 }
             }
+            
+            
             u.setGroups(groupsUpdate);
         }       
 

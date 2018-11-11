@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="/TreinamentoTeste2/CreateUser" method="POST">
+        <form action="/TreinamentoTeste2/CreateGroup" method="POST">
             
             Name: <input type="text" name="name" value="" size="20" /><br>
             Access Level: <select name="accessLevel">

@@ -5,12 +5,16 @@
  */
 package servlets;
 
+import data.Database;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.User;
+import util.DAO;
 
 /**
  *
@@ -30,7 +34,15 @@ public class CreateUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String name = request.getParameter("name");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
         
+        User user = new User(name, login, password);
+        DAO.insertUser(user);
+        //Database.userTable.add(user);
+        RequestDispatcher disp = getServletContext().getRequestDispatcher("/ListUsers");
+        disp.forward(request, response); 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

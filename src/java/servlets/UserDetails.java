@@ -42,6 +42,7 @@ public class UserDetails extends HttpServlet {
         
         ArrayList<Group> userGroups = new ArrayList<>();
         userGroups = DAO.getGroupsFromUser(user.getGroups());
+//        System.out.println(userGroups);
         
         request.setAttribute("user", user);
         request.setAttribute("groupsList", userGroups);

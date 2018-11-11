@@ -29,10 +29,16 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    private static boolean appStarted = false;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Database.start();
+        if(!appStarted){
+           Database.start();
+           appStarted=true;
+        }
+        
         
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/mainMenu.jsp");
         disp.forward(request, response); 
