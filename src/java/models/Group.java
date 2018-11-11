@@ -2,6 +2,7 @@ package models;
 
 
 
+import data.Database;
 import java.util.ArrayList;
 
 
@@ -17,15 +18,20 @@ public class Group  implements java.io.Serializable {
     public Group() {
     }
 
+    public Group(String name, int accessLevel) {
+        this.id = Database.groupTable.size();
+        this.name = name;
+        this.accessLevel = accessLevel;
+        this.users = new ArrayList<>();
+    }
+    
     public Group(int id, String name, int accessLevel, ArrayList<Integer> users) {
         this.id = id;
         this.name = name;
         this.accessLevel = accessLevel;
         this.users = users;
     }
-
     
-        
    
     public int getId() {
         return this.id;

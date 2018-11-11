@@ -30,5 +30,7 @@
             <br> 
             <input type="submit" value="Show Group Details" />
         </form>
+                                        <br><br>
+        <a href="/TreinamentoTeste2/Login">Main Menu</a>
     </body>
 </html>

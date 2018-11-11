@@ -3,6 +3,7 @@ package models;
 
 
 
+import data.Database;
 import java.util.ArrayList;
 
 
@@ -19,11 +20,22 @@ public class User  implements java.io.Serializable {
     public User() {
     }
 
-    public User(int id, String nome, String login, String senha, boolean isActive, ArrayList<Integer>  groups) {
+    public User(String name, String login, String password) {
+        this.id = Database.userTable.size();
+        this.name = name;
+        this.login = login;
+        this.password = password;
+        this.isActive = true;
+        this.groups = new ArrayList<>();
+    }
+    
+    
+
+    public User(int id, String name, String login, String password, boolean isActive, ArrayList<Integer>  groups) {
        this.id = id;
-       this.name = nome;
+       this.name = name;
        this.login = login;
-       this.password = senha;
+       this.password = password;
        this.isActive = isActive;
        this.groups = groups;
     }

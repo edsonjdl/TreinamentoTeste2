@@ -24,6 +24,18 @@
         <servlet-name>UpdateGroupUsers</servlet-name>
         <servlet-class>servlets.UpdateGroupUsers</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserDetails</servlet-name>
+        <servlet-class>servlets.UserDetails</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>servlets.CreateUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateGroup</servlet-name>
+        <servlet-class>servlets.CreateGroup</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListUsers</servlet-name>
         <url-pattern>/ListUsers</url-pattern>
@@ -47,6 +59,18 @@
     <servlet-mapping>
         <servlet-name>UpdateGroupUsers</servlet-name>
         <url-pattern>/UpdateGroupUsers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserDetails</servlet-name>
+        <url-pattern>/UserDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/CreateUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateGroup</servlet-name>
+        <url-pattern>/CreateGroup</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

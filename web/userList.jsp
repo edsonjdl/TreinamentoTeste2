@@ -14,9 +14,19 @@
     </head>
     <body>
                 <h1>List of users</h1>
+                
+                <form action="/TreinamentoTeste2/UserDetails" method="POST">
+                    
+                    <select name="selectedUser" size="5" >
         <c:forEach var="user" items="${usersList}">
-            ${user.name}&nbsp;&nbsp; ==> 
-            ${user.login}<br>
+            <option value="${user.id}">${user.name}</option>
         </c:forEach>
+            </select>
+                    
+            <br> 
+            <input type="submit" value="Show User Details" />
+                </form>
+                        <br><br>
+        <a href="/TreinamentoTeste2/Login">Main Menu</a>
     </body>
 </html>

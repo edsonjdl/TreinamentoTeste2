@@ -1,6 +1,6 @@
 <%-- 
-    Document   : groupDetail
-    Created on : Nov 10, 2018, 12:34:19 PM
+    Document   : groupDetails
+    Created on : Nov 11, 2018, 9:03:40 AM
     Author     : edson
 --%>
 
@@ -13,23 +13,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-                <h1>Group Details</h1>
+                        <h1>User Details</h1>
         
-        Name: ${group.name}
+        Name: ${user.name}
         
         <table border="1">
             <thead>
                 <tr>
-                    <th>User Id</th>
-                    <th> Login</th>
+                    <th>Group Id</th>
+                    <th> Name</th>
                 </tr>
             </thead>
             <tbody>
                 
-        <c:forEach var="user" items="${usersList}">
+        <c:forEach var="group" items="${groupsList}">
                 <tr>
-                    <td>${user.id}</td>
-                    <td>${user.login}</td>
+                    <td>${group.id}</td>
+                    <td>${group.name}</td>
                 </tr>
         </c:forEach>
 
@@ -38,13 +38,12 @@
         
         <br><br>
         
-        <form action="/TreinamentoTeste2/AddRemoveUser" method="POST">
-            <input type="hidden" value="${group.id}" name="groupId" />
-            <input type="submit" value="Add Remove users from ${group.name}" />
-        </form>            
-            
-                                    <br><br>
+        <form action="/TreinamentoTeste2/EditUser" method="POST">
+            <input type="hidden" value="${user.id}" name="userId" />
+            <input type="submit" value="Add Remove groups from ${user.name}" />
+        </form>  
+        
+                        <br><br>
         <a href="/TreinamentoTeste2/Login">Main Menu</a>
-  
     </body>
 </html>
